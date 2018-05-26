@@ -18,8 +18,8 @@ define([], function () {
             self.resume.show();
         };
 
-        this.html = function() {
-            return '<div class="btn-group" style="margin-top: 20px">'
+        this.html = function(c) {
+            return '<div class="btn-group'+(c?' '+c:'')+'" style="margin-top: 20px">'
                 + (model.player().current().rollbackable(2) ? self.rollback.html() : "") + self.resume.html()
                 + '</div>';
         };

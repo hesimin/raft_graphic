@@ -19,9 +19,9 @@ define([], function () {
         };
 
         this.html = function() {
-            return '<div class="btn-group">'
-                 + (model.player().current().rollbackable(2) ? self.rollback.html() : "") + self.resume.html()
-                 + '</div>';
+            return '<div class="btn-group" style="margin-top: 20px">'
+                + (model.player().current().rollbackable(2) ? self.rollback.html() : "") + self.resume.html()
+                + '</div>';
         };
 
         this.rollback = {
@@ -29,7 +29,7 @@ define([], function () {
                 $(".btn.rollback").css('visibility','visible').hide().fadeIn(600);
             },
             html: function() {
-                return '<button type="button" style="visibility:hidden" class="btn btn-default rollback" alt="Replay previous frame"><span class="glyphicon glyphicon-repeat"></span></button>';
+                return '<button type="button" style="visibility:hidden" class="btn btn-outline-success rollback" alt="Replay previous frame"><span class="fa fa-angle-double-left"></span></button>';
             },
             click: function() {
                 model.player().current().rollback(2);
@@ -43,7 +43,7 @@ define([], function () {
                 $(".btn.resume").css('visibility','visible').hide().fadeIn(600);
             },
             html: function() {
-                return '<button type="button" style="visibility:hidden" class="btn btn-default resume" alt="Continue to next frame">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>';
+                return '<button type="button" style="visibility:hidden;padding-left: 25px;padding-right: 15px" class="btn btn-outline-success resume" alt="Continue to next frame">下一步  <span class="fa fa-angle-double-right" style="margin-left: 5px"></span></button>';
             },
             click: function() {
                 if (self.callback !== null) {

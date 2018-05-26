@@ -200,7 +200,7 @@ define(["./controls", "./client", "./message", "./node", "./partition"], functio
             if (node.id !== candidateId && startTime < minStartTime) {
                 node.electionTimer().startTime(minStartTime);
             }
-        });        
+        });
 
         return candidateId;
     };
@@ -217,7 +217,7 @@ define(["./controls", "./client", "./message", "./node", "./partition"], functio
         nodes.forEach(function (node) {
             var minStartTime = minTime + (self.defaultNetworkLatency * 1.25);
             node.electionTimer().startTime(minStartTime);
-        });        
+        });
     };
 
     /**

@@ -260,21 +260,21 @@ define(["./log_entry"], function (LogEntry) {
 
         // Begin event loop for this node.
         switch (this._state) {
-        case "leader":
-            this.leaderEventLoop();
-            break;
-        case "candidate":
-            this.candidateEventLoop();
-            break;
-        case "follower":
-            this.followerEventLoop();
-            break;
-        case "stopped":
-            this.clearHeartbeatTimer();
-            this.clearElectionTimer();
-            break;
-        default:
-            throw new Error("Invalid node state: " + this._state);
+            case "leader":
+                this.leaderEventLoop();
+                break;
+            case "candidate":
+                this.candidateEventLoop();
+                break;
+            case "follower":
+                this.followerEventLoop();
+                break;
+            case "stopped":
+                this.clearHeartbeatTimer();
+                this.clearElectionTimer();
+                break;
+            default:
+                throw new Error("Invalid node state: " + this._state);
         }
 
         this.dispatchChangeEvent("stateChange", value, prevValue);
